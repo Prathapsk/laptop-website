@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<!-- BUY MODAL -->
+<div id="buyModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:999;">
+  <div style="background:#111; padding:25px; width:350px; border-radius:12px;">
+    
+    <h2 style="margin-top:0;color:#00ffcc">Order Details</h2>
+
+    <input id="custName" placeholder="Full Name" style="width:100%;padding:10px;margin:8px 0;border-radius:6px;border:none">
+    <input id="custMobile" placeholder="Mobile Number" type="number" style="width:100%;padding:10px;margin:8px 0;border-radius:6px;border:none">
+    <textarea id="custAddress" placeholder="Delivery Address" style="width:100%;padding:10px;margin:8px 0;border-radius:6px;border:none"></textarea>
+
+    <select id="payment" style="width:100%;padding:10px;margin:8px 0;border-radius:6px;border:none">
+      <option value="">Select Payment</option>
+      <option>Cash on Delivery</option>
+      <option>UPI</option>
+      <option>Credit / Debit Card</option>
+    </select>
+
+    <button onclick="confirmOrder()" style="width:100%;margin-top:10px;background:#00ffcc;color:black;padding:12px;border:none;border-radius:6px;font-weight:bold">
+      Confirm Order
+    </button>
+
+    <button onclick="closeModal()" style="width:100%;margin-top:8px;background:#333;color:white;padding:10px;border:none;border-radius:6px">
+      Cancel
+    </button>
+
+  </div>
+</div>
+
+<head>
+  <title>Laptop Details</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    .back {
+      display: inline-block;
+      margin: 20px;
+      color: #00ffcc;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .details-container {
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .details-card {
+      display: flex;
+      gap: 30px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .details-card img {
+      width: 380px;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+
+    .info h1 {
+      margin-top: 0;
+    }
+
+    .price {
+      font-size: 24px;
+      color: #00ffcc;
+      margin: 10px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: #ff004f;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #ff3366;
+    }
+
+    @media (max-width: 768px) {
+      .details-card {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .details-card img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="gaming.html" class="back">← Back to Page</a>
+
+<div class="details-container" id="details"></div>
+
+<script>
+const laptops = {
+
+  "msi-cyborg": {
+    name: "MSI Cyborg 17",
+    image: "Gaming lp img/gaminglp1.jpg",
+    price: "₹125,590",
+    specs: [
+      "17.3 inch FHD Display",
+      "Intel Core 7-240H Processor",
+      "16GB RAM",
+      "1TB SSD",
+      "NVIDIA RTX Graphics",
+      "Windows 11"
+    ]
+  },
+
+  "lenovo-loq": {
+    name: "Lenovo LOQ",
+    image: "Gaming lp img/gaminglp.2_.jpg",
+    price: "₹119,440",
+    specs: [
+      "17.3 inch Display",
+      "Intel Core i5 Processor",
+      "32GB RAM",
+      "2TB SSD",
+      "RTX 4050 Graphics",
+      "Windows 11"
+    ]
+  },
+
+  "rog-g16-i7": {
+    name: "ASUS ROG Strix G16 (i7)",
+    image: "Gaming lp img/gaminglp3.jpg",
+    price: "₹105,156",
+    specs: [
+      "16 inch Display",
+      "Intel Core i7 14650HX",
+      "16GB DDR5 RAM",
+      "1TB SSD",
+      "RTX 4060 Graphics"
+    ]
+  },
+
+  "acer-nitro-v17": {
+    name: "Acer Nitro V17 AI",
+    image: "Gaming lp img/gaminglp4.jpg",
+    price: "₹134,816",
+    specs: [
+      "17.3 inch FHD Display",
+      "AMD Ryzen 7 Processor",
+      "1TB SSD",
+      "AI Cooling Technology",
+      "RTX Graphics"
+    ]
+  },
+
+  "rog-g17": {
+    name: "ASUS ROG Strix G17",
+    image: "Gaming lp img/gaminglp5.webp",
+    price: "₹110,460",
+    specs: [
+      "17.3 inch Display",
+      "AMD Ryzen 7 6800H",
+      "16GB RAM",
+      "512GB SSD",
+      "RTX Graphics"
+    ]
+  },
+
+  "msi-thin-a15": {
+    name: "MSI Thin A15",
+    image: "Gaming lp img/gaminglp6_.jpg",
+    price: "₹62,379",
+    specs: [
+      "15.6 inch Display",
+      "AMD Ryzen Processor",
+      "16GB DDR5 RAM",
+      "512GB SSD",
+      "Lightweight Design"
+    ]
+  },
+
+  "rog-g18": {
+    name: "ASUS ROG Strix G18",
+    image: "Gaming lp img/gaminglp7.jpg",
+    price: "₹129,333",
+    specs: [
+      "18 inch QHD Display",
+      "AMD Ryzen 9 8940HX",
+      "16GB RAM",
+      "1TB SSD",
+      "High Performance Cooling"
+    ]
+  },
+
+  "rog-g16-i5": {
+    name: "ASUS ROG Strix G16 (i5)",
+    image: "Gaming lp img/gaminglp8.jpg",
+    price: "₹111,006",
+    specs: [
+      "16 inch Display",
+      "Intel Core i5 13450HX",
+      "16GB RAM",
+      "1TB SSD",
+      "RTX Graphics"
+    ]
+  },
+
+  "lenovo-loq-essential": {
+    name: "Lenovo LOQ Essential",
+    image: "Gaming lp img/gaminglp9.jpg",
+    price: "₹53,062",
+    specs: [
+      "15.6 inch Display",
+      "Intel Core HX Series",
+      "8GB RAM",
+      "1TB SSD",
+      "Budget Gaming Laptop"
+    ]
+  },
+
+  "msi-vector-16hx": {
+    name: "MSI Vector 16 HX",
+    image: "Gaming lp img/gaminglp10.jpg",
+    price: "₹221,991",
+    specs: [
+      "16 inch Display",
+      "Intel Core Ultra 7 255HX",
+      "64GB RAM",
+      "4TB SSD",
+      "High-End Gaming Performance"
+    ]
+  },
+
+  "ASUS-ROG-Strix": {
+    name: "Asus Rog Strix",
+    image: "Gaming lp img/gaminglp11.jpg",
+    price: "305,491",
+    specs:[
+      "18 inch Display",
+      "Intel® Core™ Ultra 9 275HX",
+      "32GB RAM DDR5-5600",
+      "2TB SSD",
+      "High-End Gaming Performance"
+    ]
+  }
+
+};
+
+const params = new URLSearchParams(window.location.search);
+const key = params.get("product");
+const laptop = laptops[key];
+
+if (laptop) {
+  document.getElementById("details").innerHTML = `
+    <div class="details-card">
+      <img src="${laptop.image}">
+      <div class="info">
+        <h1>${laptop.name}</h1>
+        <div class="price">${laptop.price}</div>
+        <ul>
+          ${laptop.specs.map(spec => `<li>${spec}</li>`).join("")}
+        </ul>
+        <button onclick="buyNow('${laptop.name}')">Buy Now</button>
+
+      </div>
+    </div>
+  `;
+} else {
+  document.getElementById("details").innerHTML =
+    "<h2 style='text-align:center'>Laptop details not found</h2>";
+}
+
+
+
+
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>

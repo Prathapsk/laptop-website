@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Laptop Details</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f0f0f;
+      color: white;
+    }
+
+    .back {
+      display: inline-block;
+      margin: 20px;
+      color: #00ffcc;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .details-container {
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .details-card {
+      display: flex;
+      gap: 30px;
+      background: rgba(255,255,255,0.08);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 1000px;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .details-card img {
+      width: 350px;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+
+    .price {
+      font-size: 24px;
+      color: #00ffcc;
+      margin: 10px 0;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: #ff004f;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff3366;
+    }
+
+    /* MODAL */
+    #buyModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal-box {
+      background: #111;
+      padding: 25px;
+      width: 350px;
+      border-radius: 12px;
+    }
+
+    .modal-box input,
+    .modal-box textarea,
+    .modal-box select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: none;
+    }
+
+    .confirm-btn {
+      width: 100%;
+      background: #00ffcc;
+      color: black;
+      font-weight: bold;
+    }
+
+    .cancel-btn {
+      width: 100%;
+      background: #333;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">← Back to Page</a>
+
+<div class="details-container" id="details"></div>
+
+<!-- BUY MODAL -->
+<div id="buyModal">
+  <div class="modal-box">
+    <h2 style="color:#00ffcc;margin-top:0;">Order Details</h2>
+
+    <input id="custName" placeholder="Full Name">
+    <input id="custMobile" placeholder="Mobile Number" type="number">
+    <textarea id="custAddress" placeholder="Delivery Address"></textarea>
+
+    <select id="payment">
+      <option value="">Select Payment</option>
+      <option>Cash on Delivery</option>
+      <option>UPI</option>
+      <option>Credit / Debit Card</option>
+    </select>
+
+    <button class="confirm-btn" onclick="confirmOrder()">Confirm Order</button>
+    <button class="cancel-btn" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<script>
+
+let selectedLaptop = "";
+
+const laptops = {
+
+  "dell-inspiron": {
+    name: "Dell Inspiron",
+    image: "index lp img/lp1.jpg",
+    price: "₹65,000",
+    specs: ["15.6 inch Display","Intel Core i5","8GB RAM","256GB SSD"]
+  },
+
+  "dell-16-plus": {
+    name: "Dell 16 Plus",
+    image: "index lp img/lp2.jpg",
+    price: "₹75,000",
+    specs: ["16 inch Display","Intel Core i5","8GB RAM","256GB SSD"]
+  },
+
+  "hp-omnibook": {
+    name: "HP OmniBook",
+    image: "index lp img/lp3.jpg",
+    price: "₹89,000",
+    specs: ["15.5 inch Display","Intel Core i7","16GB RAM","256GB SSD"]
+  },
+
+  "acer-aspire-lite": {
+    name: "Acer Aspire Lite",
+    image: "index lp img/lp4.jpg",
+    price: "₹65,000",
+    specs: ["15.6 inch Display","Intel Core i7","16GB RAM","1TB SSD"]
+  },
+
+  "lenovo-thinkbook": {
+    name: "Lenovo ThinkBook",
+    image: "index lp img/lp5.jpg",
+    price: "₹50,000",
+    specs: ["16 inch Display","Ryzen 5","16GB RAM","512GB SSD"]
+  },
+
+  "hp-240r-g10": {
+    name: "HP 240R G10",
+    image: "index lp img/lp6.jpg",
+    price: "₹42,200",
+    specs: ["14 inch Display","Intel Core 3","16GB RAM","512GB SSD"]
+  },
+
+  "lenovo-ideapad-1i": {
+    name: "Lenovo IdeaPad 1i",
+    image: "index lp img/lp7.jpg",
+    price: "₹22,179",
+    specs: ["14 inch Display","8GB RAM","128GB SSD"]
+  }
+
+};
+
+const params = new URLSearchParams(window.location.search);
+const key = params.get("product");
+const laptop = laptops[key];
+
+if (laptop) {
+  document.getElementById("details").innerHTML = `
+    <div class="details-card">
+      <img src="${laptop.image}">
+      <div>
+        <h1>${laptop.name}</h1>
+        <div class="price">${laptop.price}</div>
+        <ul>
+          ${laptop.specs.map(spec => `<li>${spec}</li>`).join("")}
+        </ul>
+        <button onclick="openModal('${laptop.name}')">Buy Now</button>
+      </div>
+    </div>
+  `;
+} else {
+  document.getElementById("details").innerHTML =
+    "<h2 style='text-align:center'>Laptop details not found</h2>";
+}
+
+function openModal(productName) {
+  selectedLaptop = productName;
+  document.getElementById("buyModal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("buyModal").style.display = "none";
+}
+
+function confirmOrder() {
+  const name = document.getElementById("custName").value;
+  const mobile = document.getElementById("custMobile").value;
+  const address = document.getElementById("custAddress").value;
+  const payment = document.getElementById("payment").value;
+
+  if (!name || !mobile || !address || !payment) {
+    alert("Please fill all details!");
+    return;
+  }
+
+  alert("Order Confirmed!\n\nProduct: " + selectedLaptop +
+        "\nName: " + name +
+        "\nPayment: " + payment);
+
+  closeModal();
+}
+
+</script>
+
+</body>
+</html>

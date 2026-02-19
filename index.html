@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Digital Laptop Zone</title>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+  <div class="logo">Laptop Hub
+    <button id="themeToggle" style="padding:6px 10px;border:none;border-radius:20px;cursor:pointer;">🌙</button>
+  </div>
+    <div class="menu-toggle" id="menuToggle">☰</div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Laptops</a></li>
+      <li><a href="#">Offers</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h2>Buy Best Laptops</h2>
+    <p>
+      <a href="student.html" class="btn-hero">Students</a> |
+      <a href="office.html" class="btn-hero">Office</a> |
+      <a href="gaming.html" class="btn-hero">Gaming</a>
+    </p>
+  </div>
+
+  <!-- CAROUSEL -->
+  <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="Banner images/lapban.jpg" class="d-block w-100" height="500">
+      </div>
+      <div class="carousel-item">
+        <img src="Banner images/lapban4.jpg" class="d-block w-100" height="500">
+      </div>
+      <div class="carousel-item">
+        <img src="Banner images/lapban6.jpg" class="d-block w-100" height="500">
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+
+  <!-- PRODUCT CARDS -->
+  <div class="card-container">
+
+    <a href="details2.html?product=dell-inspiron" class="card-link">
+      <article class="card">
+        <img src="index lp img/lp1.jpg" class="card-image">
+        <h3>Dell Inspiron</h3>
+        <p>15.6 inch, Intel Core i5, 8GB RAM, 256GB SSD</p>
+        <span class="price">₹65,000</span>
+        <button>View Details</button>
+      </article>
+    </a>
+
+    <a href="details2.html?product=dell-16-plus" class="card-link">
+      <article class="card">
+        <img src="index lp img/lp2.jpg" class="card-image">
+        <h3>Dell 16 Plus</h3>
+        <p>16 inch, Intel Core i5, 8GB RAM, 256GB SSD</p>
+        <span class="price">₹75,000</span>
+        <button>View Details</button>
+      </article>
+    </a>
+
+    <a href="details2.html?product=hp-omnibook" class="card-link">
+      <article class="card">
+        <img src="index lp img/lp3.jpg" class="card-image">
+        <h3>HP OmniBook</h3>
+        <p>15.5 inch, Intel Core i7, 16GB RAM, 256GB SSD</p>
+        <span class="price">₹89,000</span>
+        <button>View Details</button>
+      </article>
+    </a>
+
+    <a href="details2.html?product=acer-aspire-lite" class="card-link">
+      <article class="card">
+        <img src="index lp img/lp4.jpg" class="card-image">
+        <h3>Acer Aspire Lite</h3>
+        <p>15.6 inch, Intel Core i7, 16GB RAM, 1TB SSD</p>
+        <span class="price">₹65,000</span>
+        <button>View Details</button>
+      </article>
+    </a>
+
+    <a href="details2.html?product=lenovo-thinkbook" class="card-link">
+      <article class="card">
+        <img src="index lp img/lp5.jpg" class="card-image">
+        <h3>Lenovo ThinkBook</h3>
+        <p>16.0 inch, Ryzen 5, 16GB RAM, 512GB SSD</p>
+        <span class="price">₹50,000</span>
+        <button>View Details</button>
+      </article>
+    </a>
+
+    <a href="details2.html?product=hp-240r-g10" class="card-link">
+      <article class="card">
+        <img src="index lp img/lp6.jpg" class="card-image">
+        <h3>HP 240R G10</h3>
+        <p>14.0 inch, Intel Core 3, 16GB RAM, 512GB SSD</p>
+        <span class="price">₹42,200</span>
+        <button>View Details</button>
+      </article>
+    </a>
+
+    <a href="details2.html?product=lenovo-ideapad-1i" class="card-link">
+      <article class="card">
+        <img src="index lp img/lp7.jpg" class="card-image">
+        <h3>Lenovo IdeaPad 1i</h3>
+        <p>14 inch, 8GB RAM, 128GB SSD,Intel Core 3</p>
+        <span class="price">₹22,179</span>
+        <button>View Details</button>
+      </article>
+    </a>
+
+  </div>
+
+</body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  menuToggle.addEventListener("click", function () {
+    navLinks.classList.toggle("active");
+  });
+
+});
+
+
+  const toggleBtn = document.getElementById("themeToggle");
+
+  // Load saved theme
+  if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light-mode");
+    toggleBtn.textContent = "☀️";
+  }
+
+  toggleBtn.addEventListener("click", function () {
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+      localStorage.setItem("theme", "light");
+      toggleBtn.textContent = "☀️";
+    } else {
+      localStorage.setItem("theme", "dark");
+      toggleBtn.textContent = "🌙";
+    }
+  });
+
+
+</script>
+
+
+
+</html>
