@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cart-page {
+      padding: 40px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .cart-item img {
+      width: 100px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    .cart-item h4 {
+      margin: 0;
+    }
+
+    .remove-btn {
+      margin-left: auto;
+      background: red;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="cart-page">
+  <h2>Your Shopping Cart</h2>
+  <div id="cartItems"></div>
+  <div class="total" id="totalAmount"></div>
+</div>
+
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const container = document.getElementById("cartItems");
+const totalBox = document.getElementById("totalAmount");
+
+function renderCart() {
+
+  container.innerHTML = "";
+
+  if (cart.length === 0) {
+    container.innerHTML = "<p>Your cart is empty</p>";
+    totalBox.innerHTML = "";
+    return;
+  }
+
+  let total = 0;
+
+  cart.forEach((item, index) => {
+
+    total += item.price;
+
+    container.innerHTML += `
+      <div class="cart-item">
+        <img src="${item.image}">
+        <div>
+          <h4>${item.name}</h4>
+          <p>₹${item.price}</p>
+        </div>
+        <button class="remove-btn" onclick="removeItem(${index})">
+          Remove
+        </button>
+      </div>
+    `;
+  });
+
+  totalBox.innerHTML = "Total: ₹" + total;
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+renderCart();
+</script>
+
+</body>
+</html>

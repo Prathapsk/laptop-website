@@ -1,178 +1,159 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <style>
-body {
-  background-image: url('bgim1.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-}
-</style>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Laptops - Laptop Hub</title>
+  <link rel="stylesheet" href="style.css">
 
-    
-    <body>
-        <nav class="navbar">
+  <style>
+    body {
+      background-image: url('bgim1.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
     <div class="logo">Gaming Laptop</div>
 
-    <!-- Hamburger icon -->
-    <div class="menu-toggle" id="menuToggle">
-      ☰
+    <!-- CART ICON -->
+    <div class="cart-icon" id="cartIcon">
+      🛒 <span id="cartCount" class="cart-badge">0</span>
     </div>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
 
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="#">Laptops</a></li>
       <li><a href="#">Offers</a></li>
       <li><a href="contact.html">Contact</a></li>
-      
     </ul>
   </nav>
 
+  <!-- PRODUCTS -->
   <div class="card-container">
 
-<!-- 1 -->
-<a href="details.html?product=msi-cyborg" class="card-link">
-<article class="card">
-  <img src="Gaming lp img/gaminglp1.jpg" class="card-image">
-  <h3>MSI Cyborg 17</h3>
-  <p>17.3 inch, Intel Core 7-240H, 16GB RAM, 1TB STORAGE</p>
-  <span class="price">₹125,590</span>
-  <button>View Details</button>
-</article>
-</a>
+    <!-- 1 -->
+    <article class="card" data-id="msi-cyborg" data-name="MSI Cyborg 17" data-price="125590" data-image="Gaming lp img/gaminglp1.jpg">
+      <img src="Gaming lp img/gaminglp1.jpg" class="card-image">
+      <h3>MSI Cyborg 17</h3>
+      <p>17.3 inch, Intel Core 7-240H, 16GB RAM, 1TB STORAGE</p>
+      <span class="price">₹125,590</span>
+      <a href="details.html?product=msi-cyborg"><button>View Details</button></a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
-<!-- 2 -->
-<a href="details.html?product=lenovo-loq" class="card-link">
-<article class="card">
-  <img src="Gaming lp img/gaminglp.2_.jpg" class="card-image">
-  <h3>Lenovo LOQ</h3>
-  <p>17.3 inch, Intel i5, 32GB RAM, 2TB STORAGE</p>
-  <span class="price">₹119,440</span>
-  <button>View Details</button>
-</article>
-</a>
+    <!-- 2 -->
+    <article class="card" data-id="lenovo-loq" data-name="Lenovo LOQ" data-price="119440" data-image="Gaming lp img/gaminglp.2_.jpg">
+      <img src="Gaming lp img/gaminglp.2_.jpg" class="card-image">
+      <h3>Lenovo LOQ</h3>
+      <p>17.3 inch, Intel i5, 32GB RAM, 2TB STORAGE</p>
+      <span class="price">₹119,440</span>
+      <a href="details.html?product=lenovo-loq"><button>View Details</button></a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
-<!-- 3 -->
-<a href="details.html?product=rog-g16-i7" class="card-link">
-<article class="card">
-  <img src="Gaming lp img/gaminglp3.jpg" class="card-image">
-  <h3>ASUS ROG Strix G16</h3>
-  <p>Intel i7 14650HX, 16GB DDR5, 1TB</p>
-  <span class="price">₹105,156</span>
-  <button>View Details</button>
-</article>
-</a>
+    <!-- 3 -->
+    <article class="card" data-id="rog-g16-i7" data-name="ASUS ROG Strix G16" data-price="105156" data-image="Gaming lp img/gaminglp3.jpg">
+      <img src="Gaming lp img/gaminglp3.jpg" class="card-image">
+      <h3>ASUS ROG Strix G16</h3>
+      <p>Intel i7 14650HX, 16GB DDR5, 1TB</p>
+      <span class="price">₹105,156</span>
+      <a href="details.html?product=rog-g16-i7"><button>View Details</button></a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
-<!-- 4 -->
-<a href="details.html?product=acer-nitro-v17" class="card-link">
-<article class="card">
-  <img src="Gaming lp img/gaminglp4.jpg" class="card-image">
-  <h3>Acer Nitro V17 AI</h3>
-  <p>17.3 inch, Ryzen 7, 1TB SSD</p>
-  <span class="price">₹134,816</span>
-  <button>View Details</button>
-</article>
-</a>
+    <!-- 4 -->
+    <article class="card" data-id="acer-nitro-v17" data-name="Acer Nitro V17 AI" data-price="134816" data-image="Gaming lp img/gaminglp4.jpg">
+      <img src="Gaming lp img/gaminglp4.jpg" class="card-image">
+      <h3>Acer Nitro V17 AI</h3>
+      <p>17.3 inch, Ryzen 7, 1TB SSD</p>
+      <span class="price">₹134,816</span>
+      <a href="details.html?product=acer-nitro-v17"><button>View Details</button></a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
-<!-- 5 -->
-<a href="details.html?product=rog-g17" class="card-link">
-<article class="card">
-  <img src="Gaming lp img/gaminglp5.webp" class="card-image">
-  <h3>ASUS ROG Strix G17</h3>
-  <p>Ryzen 7 6800H, 16GB RAM, 512GB</p>
-  <span class="price">₹110,460</span>
-  <button>View Details</button>
-</article>
-</a>
+    <!-- 5 -->
+    <article class="card" data-id="rog-g17" data-name="ASUS ROG Strix G17" data-price="110460" data-image="Gaming lp img/gaminglp5.webp">
+      <img src="Gaming lp img/gaminglp5.webp" class="card-image">
+      <h3>ASUS ROG Strix G17</h3>
+      <p>Ryzen 7 6800H, 16GB RAM, 512GB</p>
+      <span class="price">₹110,460</span>
+      <a href="details.html?product=rog-g17"><button>View Details</button></a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
-<!-- 6 -->
-<a href="details.html?product=msi-thin-a15" class="card-link">
-<article class="card">
-  <img src="Gaming lp img/gaminglp6_.jpg" class="card-image">
-  <h3>MSI Thin A15</h3>
-  <p>15.6 inch, 16GB DDR5, 512GB SSD</p>
-  <span class="price">₹62,379</span>
-  <button>View Details</button>
-</article>
-</a>
+    <!-- 6 -->
+    <article class="card" data-id="msi-thin-a15" data-name="MSI Thin A15" data-price="62379" data-image="Gaming lp img/gaminglp6_.jpg">
+      <img src="Gaming lp img/gaminglp6_.jpg" class="card-image">
+      <h3>MSI Thin A15</h3>
+      <p>15.6 inch, 16GB DDR5, 512GB SSD</p>
+      <span class="price">₹62,379</span>
+      <a href="details.html?product=msi-thin-a15"><button>View Details</button></a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
-<!-- 7 -->
-<a href="details.html?product=rog-g18" class="card-link">
-<article class="card">
-  <img src="Gaming lp img/gaminglp7.jpg" class="card-image">
-  <h3>ASUS ROG Strix G18</h3>
-  <p>Ryzen 9 8940HX, 16GB RAM, 1TB</p>
-  <span class="price">₹129,333</span>
-  <button>View Details</button>
-</article>
-</a>
+    <!-- 7 -->
+    <article class="card" data-id="rog-g18" data-name="ASUS ROG Strix G18" data-price="129333" data-image="Gaming lp img/gaminglp7.jpg">
+      <img src="Gaming lp img/gaminglp7.jpg" class="card-image">
+      <h3>ASUS ROG Strix G18</h3>
+      <p>Ryzen 9 8940HX, 16GB RAM, 1TB</p>
+      <span class="price">₹129,333</span>
+      <a href="details.html?product=rog-g18"><button>View Details</button></a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
-<!-- 8 -->
-<a href="details.html?product=rog-g16-i5" class="card-link">
-<article class="card">
-  <img src="Gaming lp img/gaminglp8.jpg" class="card-image">
-  <h3>ASUS ROG Strix G16</h3>
-  <p>Intel i5 13450HX, 16GB, 1TB</p>
-  <span class="price">₹111,006</span>
-  <button>View Details</button>
-</article>
-</a>
+    <!-- 8 -->
+    <article class="card" data-id="rog-g16-i5" data-name="ASUS ROG Strix G16 i5" data-price="111006" data-image="Gaming lp img/gaminglp8.jpg">
+      <img src="Gaming lp img/gaminglp8.jpg" class="card-image">
+      <h3>ASUS ROG Strix G16</h3>
+      <p>Intel i5 13450HX, 16GB, 1TB</p>
+      <span class="price">₹111,006</span>
+      <a href="details.html?product=rog-g16-i5"><button>View Details</button></a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
-<!-- 9 -->
-<a href="details.html?product=lenovo-loq-essential" class="card-link">
-<article class="card">
-  <img src="Gaming lp img/gaminglp9.jpg" class="card-image">
-  <h3>Lenovo LOQ Essential</h3>
-  <p>Intel HX, 8GB RAM, 1TB SSD</p>
-  <span class="price">₹53,062</span>
-  <button>View Details</button>
-</article>
-</a>
+    <!-- 9 -->
+    <article class="card" data-id="lenovo-loq-essential" data-name="Lenovo LOQ Essential" data-price="53062" data-image="Gaming lp img/gaminglp9.jpg">
+      <img src="Gaming lp img/gaminglp9.jpg" class="card-image">
+      <h3>Lenovo LOQ Essential</h3>
+      <p>Intel HX, 8GB RAM, 1TB SSD</p>
+      <span class="price">₹53,062</span>
+      <a href="details.html?product=lenovo-loq-essential"><button>View Details</button></a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
-<!-- 10 -->
-<a href="details.html?product=msi-vector-16hx" class="card-link">
-<article class="card">
-  <img src="Gaming lp img/gaminglp10.jpg" class="card-image">
-  <h3>MSI Vector 16 HX</h3>
-  <p>Ultra 7 255HX, 64GB RAM, 4TB</p>
-  <span class="price">₹221,991</span>
-  <button>View Details</button>
-</article>
-</a>
+    <!-- 10 -->
+    <article class="card" data-id="msi-vector-16hx" data-name="MSI Vector 16 HX" data-price="221991" data-image="Gaming lp img/gaminglp10.jpg">
+      <img src="Gaming lp img/gaminglp10.jpg" class="card-image">
+      <h3>MSI Vector 16 HX</h3>
+      <p>Ultra 7 255HX, 64GB RAM, 4TB</p>
+      <span class="price">₹221,991</span>
+      <a href="details.html?product=msi-vector-16hx"><button>View Details</button></a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
-<!-- 11 -->
-<a href="details.html?product=ASUS-ROG-Strix" class="card-link">
-<article class="card">
-  <img src="Gaming lp img/gaminglp11.jpg" class="card-image">
-  <h3>ASUS ROG Strix SCAR 18</h3>
-  <p>18 Inches, Intel® Core™ Ultra 9 275HX,</p>
-  <span class="price">₹305,491</span>
-  <button>View Details</button>
-</article>
-</a>
+    <!-- 11 -->
+    <article class="card" data-id="rog-scar-18" data-name="ASUS ROG Strix SCAR 18" data-price="305491" data-image="Gaming lp img/gaminglp11.jpg">
+      <img src="Gaming lp img/gaminglp11.jpg" class="card-image">
+      <h3>ASUS ROG Strix SCAR 18</h3>
+      <p>18 inch, Intel Ultra 9 275HX</p>
+      <span class="price">₹305,491</span>
+      <a href="details.html?product=rog-scar-18"><button>View Details</button></a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
+  </div>
 
+  <script src="script.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
- </body>
+</body>
 </html>

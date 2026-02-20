@@ -10,13 +10,22 @@
   <meta charset="UTF-8">
   <title>Digital Laptop Zone</title>
 </head>
+
 <body>
 
   <!-- NAVBAR -->
   <nav class="navbar">
-  <div class="logo">Laptop Hub
-    <button id="themeToggle" style="padding:6px 10px;border:none;border-radius:20px;cursor:pointer;">🌙</button>
-  </div>
+    <div class="logo">
+      Laptop Hub
+      <button id="themeToggle"
+        style="padding:6px 10px;border:none;border-radius:20px;cursor:pointer;">🌙</button>
+    </div>
+
+    <!-- CART ICON -->
+    <div class="cart-icon" id="cartIcon">
+      🛒 <span id="cartCount" class="cart-badge">0</span>
+    </div>
+
     <div class="menu-toggle" id="menuToggle">☰</div>
 
     <ul class="nav-links" id="navLinks">
@@ -40,12 +49,6 @@
   <!-- CAROUSEL -->
   <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-    </div>
-
     <div class="carousel-inner">
       <div class="carousel-item active">
         <img src="Banner images/lapban.jpg" class="d-block w-100" height="500">
@@ -58,128 +61,148 @@
       </div>
     </div>
 
-    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-
-    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-
   </div>
 
   <!-- PRODUCT CARDS -->
   <div class="card-container">
 
-    <a href="details2.html?product=dell-inspiron" class="card-link">
-      <article class="card">
-        <img src="index lp img/lp1.jpg" class="card-image">
-        <h3>Dell Inspiron</h3>
-        <p>15.6 inch, Intel Core i5, 8GB RAM, 256GB SSD</p>
-        <span class="price">₹65,000</span>
-        <button>View Details</button>
-      </article>
-    </a>
+    <!-- PRODUCT 1 -->
+    <article class="card"
+      data-id="dell-inspiron"
+      data-name="Dell Inspiron"
+      data-price="65000"
+      data-image="index lp img/lp1.jpg">
 
-    <a href="details2.html?product=dell-16-plus" class="card-link">
-      <article class="card">
-        <img src="index lp img/lp2.jpg" class="card-image">
-        <h3>Dell 16 Plus</h3>
-        <p>16 inch, Intel Core i5, 8GB RAM, 256GB SSD</p>
-        <span class="price">₹75,000</span>
-        <button>View Details</button>
-      </article>
-    </a>
+      <img src="index lp img/lp1.jpg" class="card-image">
+      <h3>Dell Inspiron</h3>
+      <p>15.6 inch, Intel Core i5, 8GB RAM, 256GB SSD</p>
+      <span class="price">₹65,000</span>
 
-    <a href="details2.html?product=hp-omnibook" class="card-link">
-      <article class="card">
-        <img src="index lp img/lp3.jpg" class="card-image">
-        <h3>HP OmniBook</h3>
-        <p>15.5 inch, Intel Core i7, 16GB RAM, 256GB SSD</p>
-        <span class="price">₹89,000</span>
+      <a href="details2.html?product=dell-inspiron">
         <button>View Details</button>
-      </article>
-    </a>
+      </a>
 
-    <a href="details2.html?product=acer-aspire-lite" class="card-link">
-      <article class="card">
-        <img src="index lp img/lp4.jpg" class="card-image">
-        <h3>Acer Aspire Lite</h3>
-        <p>15.6 inch, Intel Core i7, 16GB RAM, 1TB SSD</p>
-        <span class="price">₹65,000</span>
-        <button>View Details</button>
-      </article>
-    </a>
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
-    <a href="details2.html?product=lenovo-thinkbook" class="card-link">
-      <article class="card">
-        <img src="index lp img/lp5.jpg" class="card-image">
-        <h3>Lenovo ThinkBook</h3>
-        <p>16.0 inch, Ryzen 5, 16GB RAM, 512GB SSD</p>
-        <span class="price">₹50,000</span>
-        <button>View Details</button>
-      </article>
-    </a>
+    <!-- PRODUCT 2 -->
+    <article class="card"
+      data-id="dell-16-plus"
+      data-name="Dell 16 Plus"
+      data-price="75000"
+      data-image="index lp img/lp2.jpg">
 
-    <a href="details2.html?product=hp-240r-g10" class="card-link">
-      <article class="card">
-        <img src="index lp img/lp6.jpg" class="card-image">
-        <h3>HP 240R G10</h3>
-        <p>14.0 inch, Intel Core 3, 16GB RAM, 512GB SSD</p>
-        <span class="price">₹42,200</span>
-        <button>View Details</button>
-      </article>
-    </a>
+      <img src="index lp img/lp2.jpg" class="card-image">
+      <h3>Dell 16 Plus</h3>
+      <p>16 inch, Intel Core i5, 8GB RAM, 256GB SSD</p>
+      <span class="price">₹75,000</span>
 
-    <a href="details2.html?product=lenovo-ideapad-1i" class="card-link">
-      <article class="card">
-        <img src="index lp img/lp7.jpg" class="card-image">
-        <h3>Lenovo IdeaPad 1i</h3>
-        <p>14 inch, 8GB RAM, 128GB SSD,Intel Core 3</p>
-        <span class="price">₹22,179</span>
+      <a href="details2.html?product=dell-16-plus">
         <button>View Details</button>
-      </article>
-    </a>
+      </a>
+
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
+
+    <!-- PRODUCT 3 -->
+    <article class="card"
+      data-id="hp-omnibook"
+      data-name="HP OmniBook"
+      data-price="89000"
+      data-image="index lp img/lp3.jpg">
+
+      <img src="index lp img/lp3.jpg" class="card-image">
+      <h3>HP OmniBook</h3>
+      <p>15.5 inch, Intel Core i7, 16GB RAM, 256GB SSD</p>
+      <span class="price">₹89,000</span>
+
+      <a href="details2.html?product=hp-omnibook">
+        <button>View Details</button>
+      </a>
+
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
+
+    <!-- PRODUCT 4 -->
+    <article class="card"
+      data-id="acer-aspire-lite"
+      data-name="Acer Aspire Lite"
+      data-price="65000"
+      data-image="index lp img/lp4.jpg">
+
+      <img src="index lp img/lp4.jpg" class="card-image">
+      <h3>Acer Aspire Lite</h3>
+      <p>15.6 inch, Intel Core i7, 16GB RAM, 1TB SSD</p>
+      <span class="price">₹65,000</span>
+
+      <a href="details2.html?product=acer-aspire-lite">
+        <button>View Details</button>
+      </a>
+
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
+
+    <!-- PRODUCT 5 -->
+    <article class="card"
+      data-id="lenovo-thinkbook"
+      data-name="Lenovo ThinkBook"
+      data-price="50000"
+      data-image="index lp img/lp5.jpg">
+
+      <img src="index lp img/lp5.jpg" class="card-image">
+      <h3>Lenovo ThinkBook</h3>
+      <p>16.0 inch, Ryzen 5, 16GB RAM, 512GB SSD</p>
+      <span class="price">₹50,000</span>
+
+      <a href="details2.html?product=lenovo-thinkbook">
+        <button>View Details</button>
+      </a>
+
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
+
+    <!-- PRODUCT 6 -->
+    <article class="card"
+      data-id="hp-240r-g10"
+      data-name="HP 240R G10"
+      data-price="42200"
+      data-image="index lp img/lp6.jpg">
+
+      <img src="index lp img/lp6.jpg" class="card-image">
+      <h3>HP 240R G10</h3>
+      <p>14.0 inch, Intel Core 3, 16GB RAM, 512GB SSD</p>
+      <span class="price">₹42,200</span>
+
+      <a href="details2.html?product=hp-240r-g10">
+        <button>View Details</button>
+      </a>
+
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
+
+    <!-- PRODUCT 7 -->
+    <article class="card"
+      data-id="lenovo-ideapad-1i"
+      data-name="Lenovo IdeaPad 1i"
+      data-price="22179"
+      data-image="index lp img/lp7.jpg">
+
+      <img src="index lp img/lp7.jpg" class="card-image">
+      <h3>Lenovo IdeaPad 1i</h3>
+      <p>14 inch, 8GB RAM, 128GB SSD, Intel Core 3</p>
+      <span class="price">₹22,179</span>
+
+      <a href="details2.html?product=lenovo-ideapad-1i">
+        <button>View Details</button>
+      </a>
+
+      <button class="add-to-cart">Add to Cart</button>
+    </article>
 
   </div>
 
+  <!-- SCRIPT FILE -->
+  <script src="script.js"></script>
+
 </body>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const menuToggle = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
-
-  menuToggle.addEventListener("click", function () {
-    navLinks.classList.toggle("active");
-  });
-
-});
-
-
-  const toggleBtn = document.getElementById("themeToggle");
-
-  // Load saved theme
-  if (localStorage.getItem("theme") === "light") {
-    document.body.classList.add("light-mode");
-    toggleBtn.textContent = "☀️";
-  }
-
-  toggleBtn.addEventListener("click", function () {
-    document.body.classList.toggle("light-mode");
-
-    if (document.body.classList.contains("light-mode")) {
-      localStorage.setItem("theme", "light");
-      toggleBtn.textContent = "☀️";
-    } else {
-      localStorage.setItem("theme", "dark");
-      toggleBtn.textContent = "🌙";
-    }
-  });
-
-
-</script>
-
-
-
 </html>
